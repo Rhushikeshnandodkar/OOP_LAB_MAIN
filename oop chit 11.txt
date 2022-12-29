@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+class AuthenticationException extends Exception {
+ 
+ public AuthenticationException(String str) {
+  System.out.println(str);
+ }
+}
+class AgeExcDemo {
+
+ public static void main(String[] args) {
+  Scanner s = new Scanner(System.in);
+  System.out.print("Enter the password ");
+  int pwd = s.nextInt();
+  
+  try {
+   if(pwd!=123) 
+    throw new AuthenticationException("Incorrect password");
+   else
+    System.out.println("Welcome");
+  }
+  catch (AuthenticationException a) {
+   System.out.println(a);
+  }
+ }
+}
