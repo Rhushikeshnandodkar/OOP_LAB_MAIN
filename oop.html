@@ -1,0 +1,456 @@
+/*
+ Problem Statement:1
+ 
+ Design a class ‘Complex ‘with data members for real and imaginary part.
+ Provide default and Parameterized constructors. 
+ Write a program to perform arithmetic operations of two complex numbers.
+ */
+
+public class Complex {
+	float real , img;
+	Complex(){}
+	Complex(float x, float y){
+		real = x;
+		img = y;
+	}
+	Complex add(Complex a) {
+		Complex temp = new Complex();
+		temp.real= this.real + a.real;
+		temp.img = this.img + a.img;
+		return temp;
+	}
+	Complex sub(Complex a) {
+		Complex temp = new Complex();
+		temp.real= this.real - a.real;
+		temp.img = this.img - a.img;
+		return temp;
+	}
+	public static void main(String args[]) {
+		Complex c1= new Complex(5.6f,6.12f);
+		Complex c2= new Complex(12.6f,4.03f);
+		Complex res;
+		res=c1.add(c2);
+		System.out.printf("Addition: %2.2f+%2.2fi\n",res.real,res.img);
+		res=c1.sub(c2);
+		System.out.printf("Substraction: %2.2f-%2.2fi\n",res.real,res.img);
+	}
+
+}
+
+OUTPUT:
+Addition: 18.20+10.15i
+Substraction: -7.00-2.09i 
+/*
+ Problem Statement:2
+ 
+ Identify commonalities and differences between Publication, Book and Magazine classes. 
+ Title, Price, Copies are common instance variables and saleCopy is common method. 
+ The differences are, Book class has author and orderCopies(). 
+ Magazine Class has methods orderQty, Current issue, receive issue().
+ Write a program to find how many copies of the given books are ordered and display total sale of publication.
+ */
+
+import java.util.Scanner;
+
+class Publication{
+	String title;
+	int copies,price;
+	void saleCopy() {	
+	}
+}
+class Book{
+	String title,author;
+	int copies,price;
+	void saleCopy() {
+		price=250;
+		System.out.println("Total sale: "+ copies * price);	
+	}
+	void orderCopies() {
+		Scanner in = new Scanner(System.in);
+		System.out.println("Enter copies: ");
+		copies = in.nextInt();
+	}
+}
+class Magazine{
+	String title;
+	int copies,price;
+	void saleCopy() {
+		
+	}
+	void orderQty() {
+		
+	}
+	void currentIssue() {
+		
+	}
+	void recieveIssue() {
+		
+	}
+}
+public class Pubs {
+	public static void main(String args[]) {
+		Book b=new Book();
+		b.orderCopies();
+		b.saleCopy();
+
+OUTPUT:
+Enter copies: 
+12
+Total sale: 3000 
+
+class Employee{
+	String name,add,mail;
+	float id,mobile,basic;
+	void salary() 
+	{
+		float da,hra,pf,cf,gross;
+		da= basic * 97/100;
+		hra= basic * 10/100;
+		pf= basic * 12/100;
+		cf= basic * 0.1f/100;
+		gross = basic + da + hra - pf - cf; 
+		System.out.println("Name: "+name);
+		System.out.println("Basic Salary: "+basic);
+		System.out.println("Gross Salary: "+gross);
+	}
+}
+class Programmer extends Employee{
+	Programmer(String name,int sal){
+		this.name = name;
+		basic = sal;
+	}
+}
+class TeamLead extends Employee{
+	TeamLead(String name,int sal){
+		this.name = name;
+		basic = sal;
+	}
+	
+}
+class APM extends Employee {
+	APM(String name,int sal){
+	    this.name = name;
+		basic = sal;
+	}
+}
+class ProjectManager extends Employee{
+	ProjectManager(String name,int sal){
+		this.name = name;
+		basic = sal;
+	}
+}
+public class Inheritance {
+	public static void main(String args[]) {
+		Programmer p = new Programmer("Amar Patil ",40000);
+		p.salary();
+		
+		TeamLead t = new TeamLead("OM Sinde ",60000);
+		t.salary();
+		
+		APM a = new APM("Jay Bhatt ",75000);
+		a.salary();
+		
+		ProjectManager pm = new ProjectManager("Neel Khan ",100000);
+		pm.salary();
+	}
+}
+
+OUTPUT:
+
+Name: Amar Patil 
+Basic Salary: 40000.0
+Gross Salary: 77960.0
+Name: OM Sinde 
+Basic Salary: 60000.0
+Gross Salary: 116940.0
+Name: Jay Bhatt 
+Basic Salary: 75000.0
+Gross Salary: 146175.0
+Name: Neel Khan 
+Basic Salary: 100000.0
+Gross Salary: 194900.0
+
+ 
+
+/*
+ Problem Statement: 4
+ 
+ Design a base class shape with two double type values and member functions to input the data and compute_area() for calculating area of shape. 
+ Derive two classes: triangle and rectangle. 
+ Make compute_area() as abstract function and redefine this function in the derived class to suit their requirements. 
+ Write a program that accepts dimensions of triangle/rectangle and display calculated area. 
+ Implement dynamic binding for given case study.
+ 
+ */
+
+import java.util.Scanner;
+abstract  class Shape{
+	double val1,val2;
+	void input() 
+	{
+		Scanner s = new Scanner(System .in); 
+		System.out.println("Enter first value: ");
+		val1 = s.nextDouble();
+		System.out.println("Enter second value: ");
+		val2 = s.nextDouble();
+	   }
+	   abstract void compute_area();	
+	}
+	class Triangle extends Shape{
+		void compute_area() {
+			double area;
+			area = 1.0f/2.0f * val1 * val2;
+			System.out.println("Tringle Area: " + area);	
+		}
+	}
+	class Rectangle extends Shape{
+		void compute_area() {
+			double area;
+			area = val1 * val2;
+			System.out.println("Rectangle area: " + area);	
+		}
+	}
+
+public class Dynamic {
+	public static void main(String args[]) {
+		Shape s;  //reference variable
+		Triangle t = new Triangle();
+		Rectangle r = new Rectangle();
+		
+		s = t;
+		s.input();
+		s.compute_area();
+		
+		s = r;
+		s.input();
+		s.compute_area();
+	}
+
+OUTPUT: 
+Enter first value: 
+12
+Enter second value: 
+10
+Tringle Area: 60.0
+Enter first value: 12
+Enter second value: 10
+Rectangle area: 120.0
+
+/*
+ Practical Statement: 5
+  
+Design and develop a context for given case study and implement an interface for Vehicles.
+Consider the example of vehicles like bicycle, car and bike. 
+All Vehicles have common functionalities such as Gear Change, Speed up and apply breaks. 
+Make an interface and put all these common functionalities. 
+Bicycle, Bike, Car classes should be implemented for all these functionalities in their own class in their own way. 
+
+*/
+
+interface Vehicles{
+	public void gearChange();
+	public void speedUp();
+	public void applyBreak();
+}
+class Bicycle implements Vehicles{
+	public void gearChange() {
+		System.out.println("Gear Changed for bicycle");
+	}
+	public void speedUp() {
+		System.out.println("Speed up for bicycle");
+		
+	}
+	public void applyBreak() {
+		System.out.println("Applied breaks of bicycle");
+		
+	}
+}
+class Bike implements Vehicles{
+	public void gearChange() {
+		System.out.println("Gear Changed for bike");
+	}
+	public void speedUp() {
+		System.out.println("Speed up for bike");
+		
+	}
+	public void applyBreak() {
+		System.out.println("Applied breaks of bike");
+		
+	}
+}
+class Cars implements Vehicles{
+	public void gearChange() {
+		System.out.println("Gear Changed for car");
+	}
+	public void speedUp() {
+		System.out.println("Speed up for car");
+		
+	}
+	public void applyBreak() {
+		System.out.println("Applied breaks of car");
+		
+	}
+	
+}
+public class Interfaces {
+	public static void main(String args[]) {
+		Vehicles v;
+		
+		v = new Bicycle();
+		
+		v.gearChange();
+		v.speedUp();
+		v.applyBreak();
+		
+        v = new Bike();
+		
+		v.gearChange();
+		v.speedUp();
+		v.applyBreak();
+		
+        v = new Cars();
+		
+		v.gearChange();
+		v.speedUp();
+		v.applyBreak();
+	}
+}
+
+OUTPUT:
+Gear Changed for bike
+Speed up for bike
+Applied breaks of bike
+Gear Changed for car
+Speed up for car
+Applied breaks of car 
+
+	}
+
+}
+/*
+ Problem Statement: 6
+ 
+  Implement a program to handle Arithmetic exception, Array Index Out of Bounds. 
+  The user enters two numbers Num1 and Num2. 
+  The division of Num1 and Num2 is displayed. 
+  If Num1 and Num2 are not integers, the program would throw a Number Format Exception. 
+  If Num2 were zero, the program would throw an Arithmetic Exception. 
+  Display the exception.
+ 
+  */
+import java.util.Scanner;
+public class Exceptions {
+	public static void main(String args[]) {
+		int num1 , num2 , result;
+		Scanner in = new Scanner(System.in);
+		try {
+			System.out.println("Enter the first number: ");
+			num1 = Integer.parseInt(in.next());
+			System.out.println("Enter the second number: ");
+			num2 = Integer.parseInt(in.next());
+			result = num1 / num2;
+			System.out.println("Division: " + result);
+		}
+		catch(ArithmeticException e) {
+			System.out.println("Denominator is ZERO: " + e);
+		}
+		catch(NumberFormatException e) {
+			System.out.println("Input is WRONG: " + e);
+		}
+	}
+}
+
+OUTPUT:
+Enter the first number: 
+12
+Enter the second number: 
+0
+Denominator is ZERO: java.lang.ArithmeticException: / by zero
+Enter the first number: 
+12
+Enter the second number: 
+abc
+Input is WRONG: java.lang.NumberFormatException: For input string: "abc"
+ 
+
+/*
+ Problem Statement: 7
+ 
+ Implement a generic program using any collection class to 
+ count the number of elements in 
+ a collection that have a specific property such as 
+ even numbers, odd number, prime number and palindromes. 
+ */
+
+public class Generics {
+	static boolean isPrime(int num) {
+		int flag = 0;
+		for(int i = 2;i<num;i++)
+			if(num % i == 0) {
+				flag = 1;
+				break;
+			}
+		if(flag == 0)
+			return true;
+		return false;
+	}
+	static<T>void count (String type, T[] element){
+		int even = 0, odd = 0, prime = 0, palin =0;
+		
+		if(type.equals("even")) {
+			for(T value : element)
+				if(Integer.parseInt(value.toString()) % 2 == 0)
+					even++;
+			System.out.println("Total Even: " + even);
+		}
+		if(type.equals("odd")) {
+			for(T value : element)
+				if(Integer.parseInt(value.toString()) % 2 != 0)
+					odd++;
+			System.out.println("Total Odd: " + odd);
+		}
+		if(type.equals("prime")) {
+			for(T value : element)
+				if(isPrime (Integer.parseInt(value.toString())))
+					prime++;
+			System.out.println("Total Prime: " + prime);
+		}
+		if(type.equals("palindrome")) {
+			for(T value : element) {
+				StringBuffer rev = new StringBuffer(value.toString());
+				if(value.toString().equals(new String(rev.reverse())))
+			
+					palin++;
+		    }		
+			System.out.println("Total Palindrome: " + palin);
+		}
+	}
+	public static void main(String args[]) {
+		Integer iarray[] = {45,73,12,84,38,151,29,30,19};
+		count("even", iarray);
+		
+		Byte barray[] = {45,73,12,84,38,115,29,30,19};
+		count ("even", barray);
+		
+		Short sarray[] = {45,73,12,84,38,151,29,30,19};
+		count ("even", sarray);
+		
+		Long larray[] = {45L,73L,12L,84L,38L,151L,29L,30L,19L};
+		count ("even", larray);
+		
+		count("odd", sarray);
+		
+		count("prime", sarray);
+		
+		count("palindrome", sarray);
+	}
+}
+
+OUTPUT:
+Total Even: 4
+Total Even: 4
+Total Even: 4
+Total Even: 4
+Total Odd: 5
+Total Prime: 4
+Total Palindrome: 1
