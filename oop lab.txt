@@ -1,0 +1,196 @@
+COMPLEX NUMBERS
+
+class Complex{
+    int real;
+    int image;
+    public Complex(){}
+    public Complex(int i, int r){
+        real = r;
+        image = i;
+    }
+    
+    public void show(){
+        System.out.println(real + "+ i" + image);
+    }
+    public void add(Complex o1, Complex o2){
+        real = o1.real + o2.real;
+        image = o1.image + o2.image;
+    }
+}
+class HelloWorld {
+    public static void main(String[] args) {
+        Complex s1 = new Complex(1, 2);
+        Complex s2 = new Complex(3, 2);
+        s1.show();
+        Complex s3 = new Complex();
+        s3.add(s1, s2);
+        s3.show();
+    }
+}
+
+
+BOOK PUBLICATIONS
+
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+class Publication{
+    String title;
+    int copeis, price;
+    void saleCopy(){
+        System.out.println("total sale of publication is " + (copeis*price));
+    }
+}
+class Book extends Publication{
+    String author;
+    Book(String n, String t, int c, int p){
+        this.author = n;
+        this.title = t;
+        this.copeis = c;
+        this.price = p;
+    }
+    void orderCopies(){
+        System.out.println("No of ordered book copies"+this.copeis);
+    }
+    void saleCopies(){
+        int total = this.copeis * this.price;
+        System.out.println("total sales of books is " + total);
+    }
+}
+class Magazine extends Publication{
+    int reciverissue;
+    Magazine(String t, int c, int p, int ri){
+        this.title = t;
+        this.copeis = c;
+        this.reciverissue = ri;
+        this.price = p;
+    }
+    void orderCopies(){
+        System.out.println("No of ordered book copies"+this.copeis);
+    }
+    void saleCopies(){
+        int total = (this.copeis - this.reciverissue) * this.price;
+        System.out.println("total sales of magazine is " + total);
+    }
+}
+class HelloWorld {
+    public static void main(String[] args) {
+        Book b1 = new Book("rhushi", "how to code", 20000, 4000);
+        Magazine m1 = new Magazine("this", 5, 100, 2);
+        m1.saleCopies();
+        b1.saleCopies();
+    }
+}
+
+
+BIKE SPEED INTERFACE
+
+interface Vehical{
+    void changeGear(int a);
+    void speedUp(int a);
+    void applyBreak(int a);
+}
+class Bicycle implements Vehical{
+    int speed;
+    int gear;
+    public void changeGear(int newGear){
+        gear = newGear;
+    }
+    public void speedUp(int increment){
+        speed = speed + increment;
+    }
+    public void applyBreak(int decrement){
+        speed  = speed - decrement;
+    }
+    public void printStates(){
+        System.out.println("speed " + speed + " gear " + gear);
+    }
+}
+class HelloWorld {
+    public static void main(String[] args) {
+        Bicycle b =  new Bicycle();
+        b.changeGear(2);
+        b.speedUp(3);
+        b.applyBreak(1);
+        b.printStates();
+    }
+}
+
+INHERITANCE EMPLOYEE
+
+class Employee{
+    String name, add, mail;
+    float id, mobile, basic;
+    void salary(){
+        float da, hra, pf, cf, gross;
+        da = basic*97/100;
+        hra = basic*10/100;
+        pf = basic*12/100;
+        cf = basic*0.1f/100;
+        gross = basic + da+ hra-pf-cf;
+        System.out.println("Name: "+name);
+        System.out.println("Basic salary: "+basic);
+        System.out.println("Gross Salary: "+gross);
+        System.out.println("mailid: "+mail);
+        System.out.println("\n"); 
+    }
+}
+class Programmer extends Employee{
+    Programmer(String name, int sal, String mail){
+        System.out.println("Programmer salary details");
+        this.name = name;
+        this.mail = mail;
+        basic = sal;
+    }
+}
+class HelloWorld {
+    public static void main(String[] args) {
+        Programmer p = new Programmer("rhushikesh", 3000000, "rhushi@gmail.com");
+        p.salary();
+    }
+}
+
+NESTED TRY
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner scr = new Scanner(System.in);
+        int num1, num2, q;
+        try{
+            System.out.println("\nEnter the value of first integer : ");
+            num1=Integer.parseInt(scr.next());
+            System.out.println("\nEnter the value of second integer : ");
+            num2=Integer.parseInt(scr.next());
+            q=num1/num2;
+            System.out.println("\nQuotient is : "+q);
+        }catch(NumberFormatException e){
+            System.out.println("Please,enter number not a character.");
+        }catch(ArithmeticException e){
+            System.out.println("Number cannot divisible by zero,Please Try Again.");
+        }
+    }
+}
+
+import java.util.*;
+class AgeException extends Exception{
+    public AgeException(String str){
+    System.out.println(str);
+    }
+}
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("please enter your age");
+        int age = sc.nextInt();
+        
+        try{
+            if(age<18){
+                throw new AgeException("invalid age");
+            }else{
+                System.out.println("Valid age");
+            }
+        }catch(AgeException a){
+                System.out.println(a);
+            }
+    }
+}
