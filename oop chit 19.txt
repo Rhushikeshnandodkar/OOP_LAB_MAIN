@@ -1,0 +1,42 @@
+interface OnlineCourse
+{
+    void get_details();
+}
+class Python implements OnlineCourse
+{
+   public void get_details()
+    {
+        System.out.println("Easy to use");
+    }
+    
+}
+class Data_Structures implements OnlineCourse
+{
+   public void get_details()
+    {
+        System.out.println("Helps to organizing,managing and storing data");
+    }
+}
+class Java implements OnlineCourse
+{
+    public void get_details()
+    {
+        System.out.println("This is a Object Oriented Programming Language ");
+    }
+}
+class Main
+{
+    public static void main(String args[])
+    {
+        Java j=new Java();
+        System.out.println("For Java");
+        j.get_details();
+        Python p=new Python();
+         System.out.println("For Python");
+        p.get_details();
+        Data_Structures ds=new Data_Structures();
+        System.out.println("For Data_Structures");
+
+        ds.get_details();
+    }
+}
