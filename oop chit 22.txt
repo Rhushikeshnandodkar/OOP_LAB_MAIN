@@ -1,0 +1,96 @@
+abstract class Student
+{
+    abstract void getname(String n);
+    abstract void marksSSC(float s);
+    abstract void marksHSC(float h);
+    
+}
+class Harish extends Student
+{    
+    String name;
+       float ssc,hsc;
+   public void getname(String n)
+    {
+        this.name=n;
+        System.out.println(name);
+        
+    }
+   public void marksSSC(float s)
+    {
+        this.ssc=s;
+        System.out.println(ssc);
+
+    }
+    public void marksHSC(float h)
+    {
+        this.hsc=h;
+        System.out.println(hsc);
+
+    }
+    
+}
+class Jayant extends Student
+{ String name;
+       float ssc,hsc;
+   public void getname(String n)
+    {
+        this.name=n;
+        System.out.println(name);
+        
+    }
+   public void marksSSC(float s)
+    {
+        this.ssc=s;
+        System.out.println(ssc);
+
+    }
+    public void marksHSC(float h)
+    {
+        this.hsc=h;
+        System.out.println(hsc);
+
+    }
+    
+}
+class Vijay extends Student
+{
+    String name;
+       float ssc,hsc;
+   public void getname(String n)
+    {
+        this.name=n;
+        System.out.println(name);
+        
+    }
+   public void marksSSC(float s)
+    {
+        this.ssc=s;
+        System.out.println(ssc);
+
+    }
+    public void marksHSC(float h)
+    {
+        this.hsc=h;
+        System.out.println(hsc);
+
+    }
+}
+    class Main
+    {
+        public static void main ( String args [])
+        
+        {
+            Harish ha=new Harish();
+            Jayant j=new Jayant();
+            Vijay v=new Vijay();
+            ha.getname("Harish");
+            ha.marksSSC(450);
+            ha.marksHSC(505);
+             j.getname("Jayant");
+            j.marksSSC(470);
+            j.marksHSC(555);
+             v.getname("Vijay");
+            v.marksSSC(496);
+            v.marksHSC(400);
+        }
+    }

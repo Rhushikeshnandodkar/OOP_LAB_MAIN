@@ -1,0 +1,37 @@
+class Student
+{
+    String name;
+    int rno;
+    float m1,m2;
+    float marks,per;
+    void set_details(String name,int rno,float m1,float m2)
+    {
+        this.name=name;
+        this.rno=rno;
+        this.m1=m1;
+        this.m2=m2;
+        
+        
+    }
+    void print_details()
+    {
+        marks=m1+m2;
+        per=((m1+m2)/200)*100;
+        System.out.println("Name of the Student is :"+name);
+        System.out.println("\nRoll number is :"+rno);
+
+        System.out.println("Total marks obtained out of 200 are :"+marks);
+        System.out.println("Percentage obtained :"+per+"%");
+
+    }
+    
+}
+class Main
+{
+    public static void main(String args[])
+    {
+        Student s=new Student();
+        s.set_details("Atharv",14,75,80);
+        s.print_details();
+    }
+}

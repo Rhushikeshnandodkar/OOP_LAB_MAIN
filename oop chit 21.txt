@@ -1,0 +1,61 @@
+class Bank
+{
+    float Amount;
+    float rot;
+    void getRateOfInterest()
+    {
+        float Awi;//Amout With Intrest
+        float interest;
+        interest=(Amount*rot)/100;
+        Awi=Amount+interest;
+        System.out.println("Rate of Interest : " +rot+"%");
+        System.out.println("For Amount : "+Amount);
+        System.out.println("Interest is : "+interest);
+        System.out.println("Amount With Interest :  "+Awi);
+
+    }
+}
+class SBI extends Bank
+{
+    SBI(float Amount,float rot)
+    {
+        this.Amount=Amount;
+        this.rot=rot;
+    }
+    
+}
+class ICICI extends Bank
+{
+    ICICI(float Amount,float rot)
+    {
+        this.Amount=Amount;
+        this.rot=rot;
+    }
+    
+}
+class AXIS extends Bank
+{
+    AXIS(float Amount,float rot)
+    {
+        this.Amount=Amount;
+        this.rot=rot;
+    }
+    
+}
+class Main
+{
+    public static void main(String args[])
+    {
+        SBI s=new SBI(50000,8);
+        System.out.println("For SBI :\n");
+        s.getRateOfInterest();
+        
+        ICICI i=new ICICI(50000,7);
+          System.out.println("For ICICI :\n");
+        i.getRateOfInterest();
+        
+        AXIS a=new AXIS(50000,9);
+          System.out.println("For AXIS :\n");
+        a.getRateOfInterest();
+    }
+}

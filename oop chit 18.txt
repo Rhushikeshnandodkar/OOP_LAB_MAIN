@@ -1,0 +1,52 @@
+interface OS
+{
+	void spec();
+}
+
+class Android implements OS
+{
+	public void spec()
+	{
+		System.out.println("Most powerful OS");
+	}
+}
+
+class iOS implements OS
+{
+	public void spec()
+	{
+		System.out.println("Most secure OS");
+	}
+}
+
+class BlackBerry implements OS
+{
+	public void spec()
+	{
+		System.out.println("Provide Multitasking");
+	}
+}
+
+class OperatingSystemFactory
+{
+	public OS getInstance (String str)
+	{
+		if (str.equals("Open"))
+			return new Android();
+		else if (str.equals("Closed"))
+			return new iOS();
+		else
+		return new BlackBerry();
+
+	}
+}
+
+class Main
+{
+	public static void main (String [] args)
+	{
+		OperatingSystemFactory osf=new OperatingSystemFactory();
+		OS obj= osf.getInstance("Open");
+		obj.spec();
+	}
+}

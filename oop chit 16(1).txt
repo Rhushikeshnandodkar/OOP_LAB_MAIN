@@ -1,0 +1,41 @@
+import java.util.*;
+class Employee
+{
+    String email_id,name;
+    int salary,experience;
+    void print_details( String email_id,String name, int salary,int experience)
+    {
+        this.email_id=email_id;
+        this.name=name;
+        this.salary=salary;
+        this.experience=experience;
+        System.out.println("Name is :"+name);
+        System.out.println("eEailid is  :"+email_id);
+        System.out.println("Salary is :"+salary);
+        System.out.println("Experience is :"+experience);
+    }
+}
+class Main
+{
+    public static void main(String args[])
+    {
+     
+        Employee[] ep=new Employee[1];
+        Scanner sc =new Scanner(System.in);
+        for(int i=0;i<1;i++)
+        {
+        System.out.println("Enter the Name");
+        String s1=sc.next();
+        System.out.println("Enter the Mail id");
+        String s2=sc.next();
+        System.out.println("Enter the Salary");
+        int s3=sc.nextInt();
+        System.out.println("Enter the experience");
+        int s4=sc.nextInt();
+        ep[i]= new Employee();
+        ep[i].print_details(s1,s2,s3,s4);
+        }
+        
+    }
+}
+

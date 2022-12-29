@@ -1,0 +1,52 @@
+class Account
+{
+    String name;
+    int ac_no,min_bal,saving_bal,deposits,withdrawls;
+    void Cust_name(String n)
+    {
+      this.name=n;
+      System.out.println(name);
+    }
+    void ac_no(int ac_no)
+    {
+      this.ac_no=ac_no;
+      System.out.println(ac_no);  
+    }
+}
+class Saving_acc extends Account
+{
+    void min_bal(int min_bal)
+    {
+        this.min_bal=min_bal;
+      System.out.println(min_bal);  
+    }
+    void saving_bal(int saving_bal )
+    {
+        this.saving_bal=saving_bal;
+      System.out.println(saving_bal);  
+    }
+}
+class Account_details extends Saving_acc
+{
+    void deposits(int deposits)
+    {
+        this.deposits=deposits;
+      System.out.println(deposits);  
+    }
+    void withdrawls(int withdrawls)
+    {
+        this.withdrawls=withdrawls;
+      System.out.println(withdrawls);  
+    }
+    
+}
+class Main
+{
+    public static void main(String args[])
+    {
+        Account a=new Account();
+        Saving_acc sa =new Saving_acc();
+        Account_details ad=new Account_details();
+        ad.min_bal(500);
+    }
+}
